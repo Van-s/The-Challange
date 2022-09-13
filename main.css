@@ -19,11 +19,12 @@ header span {
   display: flex;
   font-size: 5rem;
   width: 100%;
-  justify-content: center;
+  align-self: center;
 }
 
-#sub {
+#yoga, #sore {
   display: flex;
+  align-self: center;
   font-size: 3rem;
   border-radius: .5rem;
 }
@@ -32,8 +33,15 @@ header span {
   display: flex;
   width: 100%;
   justify-content: center;
+  flex-direction: column;
   padding-bottom: 5rem;
   padding-top: 5rem;
+}
+
+#dayCounter{
+  display: flex;
+  font-size: 4rem;
+  align-self: center;
 }
 
 #today, #today a, #today p{
@@ -43,6 +51,19 @@ header span {
   font-size: 3rem;
 }
 
-#today {
+
+#today, #todayWorkout {
   flex-direction: column;
+  align-items: center;
+}
+
+#workout {
+  max-height: 50%;
+  max-width: 50%;
+}
+
+@media screen and (max-width: 736px) {
+  #workout {
+    max-width: 100%;
+  }
 }

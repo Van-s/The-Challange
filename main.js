@@ -1,170 +1,62 @@
-document.getElementById('sub').addEventListener('click', getDate)
+const sore = 13
+const head = 17
+const videos = [4,
+  "https://www.youtube.com/watch?v=VpW33Celubg&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=4",
+  "https://www.youtube.com/watch?v=dcqW72d5JjI&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=2",
+  "https://www.youtube.com/watch?v=BPrAtXKsn6o&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=12",
+  "https://www.youtube.com/watch?v=0cCYQh0czfY&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=11",
+  "https://www.youtube.com/watch?v=Nnd5Slo02us&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=7",
+  "https://www.youtube.com/watch?v=XeXz8fIZDCE&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=5",
+  "https://www.youtube.com/watch?v=HtSSMx-LbQ4&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=48",
+  "https://www.youtube.com/watch?v=M-8FvC3GD8c&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=46",
+  "https://www.youtube.com/watch?v=dF7O6-QabIo&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=45",
+  "https://www.youtube.com/watch?v=UEEsdXn8oG8&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=43",
+  "https://www.youtube.com/watch?v=X3-gKPNyrTA&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=42",
+  "https://www.youtube.com/watch?v=SrN9pBY0KZs&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=38",
+  "https://www.youtube.com/watch?v=CxuDcHCduw0&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=37",
+  "https://www.youtube.com/watch?v=7agiIk9KgyI&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=36",
+  "https://www.youtube.com/watch?v=h6lKRlAjq2s&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=33",
+  "https://www.youtube.com/watch?v=b1H3xO3x_Js&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=31",
+  "https://www.youtube.com/watch?v=p433HzhvB44&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=30",
+  "https://www.youtube.com/watch?v=P8uHMMmWMHQ&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=29",
+  "https://www.youtube.com/watch?v=UEEsdXn8oG8&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=27",
+  "https://www.youtube.com/watch?v=X3-gKPNyrTA&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=26",
+  "https://www.youtube.com/watch?v=YbAYMQC_ZaE&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=25",
+  "https://www.youtube.com/watch?v=r7xsYgTeM2Q&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=24",
+  "https://www.youtube.com/watch?v=RiDhzDhsQU8&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=23",
+  "https://www.youtube.com/watch?v=Yzm3fA2HhkQ&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=22",
+  "https://www.youtube.com/watch?v=d6zJkHcjbWc&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=21",
+  "https://www.youtube.com/watch?v=G6edqEaFJVg&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=20",
+]
+
+document.getElementById('yoga').addEventListener('click', getYoga)
+document.getElementById('sore').addEventListener('click', getSore)
 
 const today = new Date()
-const start = new Date('September 6, 2022')
+const start = new Date('September 13, 2022')
 today.setUTCHours(0,0,0,0)
 start.setUTCHours(0,0,0,0)
 let day = Math.abs(start - today)/ (1000*60*60*24)
 
-function getDate (){
-  document.getElementById("today").innerHTML = `<a href = ${dict[day].yoga}>Yoga for today</a> <p> ${dict[day].cardio} </p> <p> ${dict[day].workout} </p>`
+document.getElementById('dayCounter').innerHTML += `Day: ${day}`
 
+let yogaDay =  day
+
+
+function getYoga (){
+  if( yogaDay >= videos.length){
+    yogaDay = yogaDay - videos.length
+  }
+  let holder = 0
+  if(yogaDay%3 === 0 ){
+    holder =  "https://www.youtube.com/watch?v=V1HbXt5ZRlg&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=17"
+  }  else {
+    holder = videos[yogaDay]
+  }
+  document.getElementById('today').innerHTML += `<a href=${holder}>Heres your yoga</a>`
 }
 
-const dict = {
-  0: {
-    yoga: "https://www.youtube.com/watch?v=JpWa4LtKe4c&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=1",
-    cardio : "30 mins of cardio",
-    workout: "1: walking Lunges 2: Push-ups 3: Rows 4: Plank Shoulder Taps"
-  },
-  1: {
-    yoga: "https://www.youtube.com/watch?v=ZSIp00SewO8&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=3",
-    cardio : "30 mins of cardio",
-    workout: "1: walking Lunges 2: Push-ups 3: Rows 4: Plank Shoulder Taps"
-  },
-  2: {
-    yoga: "https://www.youtube.com/watch?v=GaL3YF1vY2k&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=4",
-    cardio : "30 mins of cardio",
-    workout: "1: walking Lunges 2: Push-ups 3: Rows 4: Plank Shoulder Taps"
-  },
-  3: {
-    yoga: "https://www.youtube.com/watch?v=hJjqx6YlcWs&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=5",
-    cardio : "30 mins of cardio",
-    workout: "1: walking Lunges 2: Push-ups 3: Rows 4: Plank Shoulder Taps"
-  },
-  4: {
-    yoga: "https://www.youtube.com/watch?v=-rjYMUNJsO0&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=6",
-    cardio : "30 mins of cardio",
-    workout: "1: walking Lunges 2: Push-ups 3: Rows 4: Plank Shoulder Taps"
-  },
-  5: {
-    yoga: "https://www.youtube.com/watch?v=jWMtgM_8jAE&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=7",
-    cardio : "30 mins of cardio",
-    workout: "1: walking Lunges 2: Push-ups 3: Rows 4: Plank Shoulder Taps"
-  },
-  6: {
-    yoga: "https://www.youtube.com/watch?v=aAVOdXvdtk8&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=8",
-    cardio : "30 mins of cardio",
-    workout: "1: walking Lunges 2: Push-ups 3: Rows 4: Plank Shoulder Taps"
-  },
-  7: {
-    yoga: "https://www.youtube.com/watch?v=uxWJRKyUNZo&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=9",
-    cardio : "30 mins of cardio",
-    workout: "1: walking Lunges 2: Push-ups 3: Rows 4: Plank Shoulder Taps"
-  },
-  8: {
-    yoga: "https://www.youtube.com/watch?v=18oXIcsTpUY&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=10",
-    cardio : "30 mins of cardio",
-    workout: "1: walking Lunges 2: Push-ups 3: Rows 4: Plank Shoulder Taps"
-  },
-  9: {
-    yoga: "https://www.youtube.com/watch?v=JAOUZR3Jw3E&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=11",
-    cardio : "30 mins of cardio",
-    workout: "1: walking Lunges 2: Push-ups 3: Rows 4: Plank Shoulder Taps"
-  },
-  10: {
-    yoga: "https://www.youtube.com/watch?v=upiiNyibfF0&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=12",
-    cardio : "30 mins of cardio",
-    workout: "1: walking Lunges 2: Push-ups 3: Rows 4: Plank Shoulder Taps"
-  },
-  11: {
-    yoga: "https://www.youtube.com/watch?v=hmUAQIxZwXw&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=13",
-    cardio : "30 mins of cardio",
-    workout: "1: walking Lunges 2: Push-ups 3: Rows 4: Plank Shoulder Taps"
-  },  
-  12: {
-    yoga: "https://www.youtube.com/watch?v=5sTZMSGurlg&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=14",
-    cardio : "30 mins of cardio",
-    workout: "1: walking Lunges 2: Push-ups 3: Rows 4: Plank Shoulder Taps"
-  },
-  13: {
-    yoga: "https://www.youtube.com/watch?v=_O0z9EBEO6g&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=15",
-    cardio : "30 mins of cardio",
-    workout: "1: walking Lunges 2: Push-ups 3: Rows 4: Plank Shoulder Taps"
-  },
-  14: {
-    yoga: "https://www.youtube.com/watch?v=PVJtNPVq26Q&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=16",
-    cardio : "30 mins of cardio",
-    workout: "1: walking Lunges 2: Push-ups 3: Rows 4: Plank Shoulder Taps"
-  },
-  15: {
-    yoga: "https://www.youtube.com/watch?v=uZ0J5Sj_0Yw&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=17",
-    cardio : "30 mins of cardio",
-    workout: ""
-  },
-  16: {
-    yoga: "https://www.youtube.com/watch?v=mnw2-SUbcCI&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=18",
-    cardio : "30 mins of cardio",
-    workout: ""
-  },
-  17: {
-    yoga: "https://www.youtube.com/watch?v=sqbavY4lOyI&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=19",
-    cardio : "30 mins of cardio",
-    workout: ""
-  },
-  18: {
-    yoga: "https://www.youtube.com/watch?v=RfJseP0-Tys&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=20",
-    cardio : "30 mins of cardio",
-    workout: ""
-  },
-  19: {
-    yoga: "https://www.youtube.com/watch?v=z0q2K-ot_R4&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=21",
-    cardio : "30 mins of cardio",
-    workout: ""
-  },
-  20: {
-    yoga: "https://www.youtube.com/watch?v=_aCNiRAyOlI&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=22",
-    cardio : "30 mins of cardio",
-    workout: ""
-  },
-  21: {
-    yoga: "https://www.youtube.com/watch?v=iTvFko3tOKY&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=23",
-    cardio : "30 mins of cardio",
-    workout: ""
-  },
-  22: {
-    yoga: "https://www.youtube.com/watch?v=T1VJBw0vL_Q&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=24",
-    cardio : "30 mins of cardio",
-    workout: ""
-  },
-  23: {
-    yoga: "https://www.youtube.com/watch?v=mfjo2dCuU9s&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=25",
-    cardio : "30 mins of cardio",
-    workout: ""
-  },
-  24: {
-    yoga: "https://www.youtube.com/watch?v=d1jKp2mZkSQ&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=26",
-    cardio : "30 mins of cardio",
-    workout: ""
-  },
-  25: {
-    yoga: "https://www.youtube.com/watch?v=DRNdD9c7HMc&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=27",
-    cardio : "30 mins of cardio",
-    workout: ""
-  },
-  26: {
-    yoga: "https://www.youtube.com/watch?v=jc27Unjv_tM&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=28",
-    cardio : "30 mins of cardio",
-    workout: ""
-  },
-  27: {
-    yoga: "https://www.youtube.com/watch?v=-j9o8sxTnbs&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=29",
-    cardio : "30 mins of cardio",
-    workout: ""
-  },
-  28: {
-    yoga: "https://www.youtube.com/watch?v=ZvX-N5c0pVA&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=30",
-    cardio : "30 mins of cardio",
-    workout: ""
-  },
-  29: {
-    yoga: "https://www.youtube.com/watch?v=_j0zxr9RZwM&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=31",
-    cardio : "30 mins of cardio",
-    workout: ""
-  },
-  30: {
-    yoga: "https://www.youtube.com/watch?v=TVwyEtS_7OQ&list=PLui6Eyny-UzzJ4NSTesh4xRWg4ZWNz5s4&index=32",
-    cardio : "30 mins of cardio",
-    workout: ""
-  },
+function getSore () {
+  document.getElementById('today').innerHTML += `<a href="https://www.youtube.com/watch?v=tTZRx453Lyo&list=PLui6Eyny-UzxL6NjFMYD5-vESNii8_aLi&index=12">Heres your yoga</a>`
 }
+
